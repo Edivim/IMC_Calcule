@@ -19,15 +19,19 @@ def interpretar_imc(imc):
     else:
         return "Obesidade Grau 3"
 
-# Solicitar dados ao usuário
-peso = float(input("Digite o seu peso em quilogramas: "))
-altura = float(input("Digite a sua altura em centímetros: "))
+# Função para obter os dados do usuário
+def obter_dados_usuario():
+    peso = float(input("Digite o seu peso em quilogramas: "))
+    altura = float(input("Digite a sua altura em centímetros: "))
+    return peso, altura
 
-# Calcular o IMC
-imc = calcular_imc(peso, altura)
+# Função principal
+def main():
+    peso, altura = obter_dados_usuario()
+    imc = calcular_imc(peso, altura)
+    interpretacao = interpretar_imc(imc)
+    
+    print(f"Seu IMC é {imc:.2f}, o que indica: {interpretacao}")
 
-# Interpretar o IMC
-interpretacao = interpretar_imc(imc)
-
-# Exibir o resultado
-print(f"Seu IMC é {imc:.2f}, o que indica: {interpretacao}")
+if __name__ == "__main__":
+    main()
