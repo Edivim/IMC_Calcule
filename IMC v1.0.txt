@@ -1,0 +1,33 @@
+# Função para calcular o IMC
+def calcular_imc(peso, altura):
+    altura_metros = altura / 100  # Converter altura de centímetros para metros
+    imc = peso / (altura_metros ** 2)
+    return imc
+
+# Função para interpretar o IMC
+def interpretar_imc(imc):
+    if imc < 18.5:
+        return "Abaixo do peso"
+    elif 18.5 <= imc < 24.9:
+        return "Peso normal"
+    elif 25 <= imc < 29.9:
+        return "Sobrepeso"
+    elif 30 <= imc < 34.9:
+        return "Obesidade Grau 1"
+    elif 35 <= imc < 39.9:
+        return "Obesidade Grau 2"
+    else:
+        return "Obesidade Grau 3"
+
+# Solicitar dados ao usuário
+peso = float(input("Digite o seu peso em quilogramas: "))
+altura = float(input("Digite a sua altura em centímetros: "))
+
+# Calcular o IMC
+imc = calcular_imc(peso, altura)
+
+# Interpretar o IMC
+interpretacao = interpretar_imc(imc)
+
+# Exibir o resultado
+print(f"Seu IMC é {imc:.2f}, o que indica: {interpretacao}")
